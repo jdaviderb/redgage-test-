@@ -8,13 +8,9 @@ import FlatButton from 'material-ui/FlatButton';
 import {connect} from 'react-redux'
 import { goToNewBlog } from '../actions/router'
 import { changeTitleAppBar } from '../actions/appBar'
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Blog extends Component {
-
-	componentDidMount () {
-		this.props.changeTitleAppBar()
-	}
-
 
 	render () {
 		const { appBar, posts, goToNewBlog } = this.props
@@ -30,7 +26,7 @@ class Blog extends Component {
 			/>
 		)
 		return (
-			<Layout title={appBar.title} rightElement={<FlatButton onClick={goToNewBlog} label="New post" />}>
+			<Layout title="simple redgage blog" rightElement={<FlatButton onClick={goToNewBlog} label="New post" />}>
 				<List>
 					<Subheader>Posts</Subheader>
 					{posts.posts.map(makePost)}
@@ -48,7 +44,6 @@ const mapStateToProps = ({appBar, posts}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 	goToNewBlog: () => dispatch(goToNewBlog()),
-	changeTitleAppBar: () => dispatch(changeTitleAppBar('simple redgage blog'))
 }) 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Blog)

@@ -8,6 +8,6 @@ export const backRoute = () => ({
 })
 
 
-export const goToNewBlog = () => (dispatch) => {
-	dispatch(redirectTo('/blog/new'))
-}
+export const goToBlog = () => dispatch => dispatch(redirectTo('/blog'))
+
+export const goToNewBlog = () => (dispatch) => dispatch(redirectTo('/blog/new'))
