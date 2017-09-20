@@ -18,12 +18,14 @@ const style = {
 		flexDirection: 'column'
 	}
 }
+
 class NewBlog extends Component { 
 
 
 	componentDidMount () {
 		this.props.changeTitleAppBar()
 		this.props.clearForm()
+
 	}
 
 	render () {
@@ -49,6 +51,7 @@ class NewBlog extends Component {
 			 		floatingLabelText="Title"
 			 		fullWidth={true}
 			 		value={formBlog.post.title}
+			 		errorText={formBlog.errors.title}
 			 		onChange={(e) => updateForm('title', e.target.value) }
 			 	/>
 
@@ -58,6 +61,7 @@ class NewBlog extends Component {
 		 	 		multiLine={true}
 		 	 		rows={5}
 		 	 		value={formBlog.post.content}
+		 	 		errorText={formBlog.errors.content}
 		 	 		onChange={(e) => updateForm('content', e.target.value) }
 		 	 	/>
 

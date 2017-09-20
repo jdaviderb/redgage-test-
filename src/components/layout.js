@@ -5,7 +5,7 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close'
 import IconButton from 'material-ui/IconButton'
 const styles = {
 	container: {
-		height: '100vh',
+		minHeight: '100vh',
 		width: '100vw',
 		display: 'flex',
 		flexDirection: 'column'

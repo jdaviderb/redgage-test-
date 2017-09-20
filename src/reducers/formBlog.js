@@ -3,6 +3,11 @@ const initialState = {
 		title: 'title',
 		content: 'content'
 	},
+	errors: {
+		title: '',
+		content: ''
+	},
+	error: false,
 	loading: false
 }
 

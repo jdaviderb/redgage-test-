@@ -19,7 +19,7 @@ class Blog extends Component {
 				key={index}
 				onClick={() => goToPost(post.id)}
 			  primaryText={post.title}
-			  secondaryText={'666-66-66'}
+			  secondaryText={post.date}
 			  rightIcon={(<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
 			  	<FontIcon style={{color: 'rgba(0,0,0,.7)'}} className="material-icons">chat</FontIcon>
 			  	{post.comments.length}
