@@ -50,6 +50,7 @@ class NewBlog extends Component {
 			 		hintText="write title of the post"
 			 		floatingLabelText="Title"
 			 		fullWidth={true}
+			 		disabled={formBlog.loading}
 			 		value={formBlog.post.title}
 			 		errorText={formBlog.errors.title}
 			 		onChange={(e) => updateForm('title', e.target.value) }
@@ -59,6 +60,7 @@ class NewBlog extends Component {
 		 	 		floatingLabelText="Content"
 		 	 		fullWidth={true}
 		 	 		multiLine={true}
+		 	 		disabled={formBlog.loading}
 		 	 		rows={5}
 		 	 		value={formBlog.post.content}
 		 	 		errorText={formBlog.errors.content}
