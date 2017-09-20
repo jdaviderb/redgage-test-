@@ -1,5 +1,6 @@
 const initialState = {
-	posts: []
+	posts: [],
+	currentPost: {}
 }
 
 export default (state = initialState, action) => {
@@ -12,6 +13,10 @@ export default (state = initialState, action) => {
 				comments: [],
 			}
 			state.posts.push(post)
+			return {...state}
+		case 'CURRENT_POST':
+			const currentPost = state.posts.filter((post) => post.id == action.payload )
+			state.currentPost = currentPost[0]
 			return {...state}
 		default:
 			return state

@@ -6,17 +6,18 @@ import FontIcon from 'material-ui/FontIcon';
 import Toast from './toast'
 import FlatButton from 'material-ui/FlatButton';
 import {connect} from 'react-redux'
-import { goToNewBlog } from '../actions/router'
+import { goToNewBlog, goToBlogPost } from '../actions/router'
 import { changeTitleAppBar } from '../actions/appBar'
 import RaisedButton from 'material-ui/RaisedButton';
 
 class Blog extends Component {
 
 	render () {
-		const { appBar, posts, goToNewBlog } = this.props
+		const { appBar, posts, goToNewBlog, goToPost } = this.props
 		const makePost = (post, index) => (
 			<ListItem
 				key={index}
+				onClick={() => goToPost(post.id)}
 			  primaryText={post.title}
 			  secondaryText={'666-66-66'}
 			  rightIcon={(<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
@@ -44,6 +45,7 @@ const mapStateToProps = ({appBar, posts}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 	goToNewBlog: () => dispatch(goToNewBlog()),
+	goToPost: (id) => dispatch(goToBlogPost(id))
 }) 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Blog)

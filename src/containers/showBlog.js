@@ -5,7 +5,8 @@ import Divider from 'material-ui/Divider'
 import FontIcon from 'material-ui/FontIcon'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
-
+import {connect} from 'react-redux'
+import { currentPost } from '../actions/blog'
 const styles = {
 	container: {
 		display: 'flex',
@@ -28,24 +29,25 @@ const styles = {
 	}
 
 }
-export default class ShowBlog extends Component {
+class ShowBlog extends Component {
 
 	componentDidMount () {
 		const params = this.props.match.params
+		this.props.dispatch(currentPost(params.id))
 	}
 
 
 	render () {
+		const {posts} = this.props
 		return (
 			<Layout title="simple redgage blog">
 				<div style={styles.container}> 
 
 				
 				<Paper style={styles.content}>
-					<h1> titleee </h1>
+					<h1> {posts.currentPost.title} </h1>
 					<p> 
-						sadkjsal kdjsalkdjsalkdj lkjsadlksajdlksajdsad
-						sadsad
+						{posts.currentPost.content}
 					</p>		
 				</Paper>
 				<Paper style={styles.comments}>
@@ -74,3 +76,9 @@ export default class ShowBlog extends Component {
 		)
 	}
 }
+
+const mapStateToProps = ({posts}) => ({
+	posts
+})
+
+export default connect(mapStateToProps)(ShowBlog)
